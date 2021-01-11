@@ -22,7 +22,7 @@ const getAnimeRequest = async(searchValue) => {
         if (responseJson.results) {
                 setAnimes(responseJson.results);
         }
-        else if (searchValue == '') {
+        else if (searchValue === '') {
                 setAnimes([]);
         }
 };
