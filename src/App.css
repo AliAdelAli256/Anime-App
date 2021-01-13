@@ -13,7 +13,7 @@ span {
 
 .dark-mode {
   background-color: #141414;
-  color: #fff;
+  color: rgb(238, 238, 238);
   height: 100vh;
   overflow: auto;
   transition: background-color 0.25s ease-in-out;
@@ -21,18 +21,18 @@ span {
 
 .dark-mode input {
   background-color: #141414;
-  color: #fff;
+  color: rgb(238, 238, 238);
   transition: 0.3s ease-in-out;
 }
 
 .dark-mode input:hover {
-  background-color: #fff;
+  background-color: rgb(238, 238, 238);
   color: #141414;
   transition: 0.3s ease-in-out;
 }
 
 .light-mode {
-  background-color: #fff;
+  background-color: rgb(238, 238, 238);
   color: #222;
   height: 100vh;
   overflow: auto;
@@ -40,14 +40,14 @@ span {
 }
 
 .light-mode input {
-  background-color: #fff;
+  background-color: rgb(238, 238, 238);
   color: #141414;
   transition: 0.3s ease-in-out;
 }
 
 .light-mode input:hover {
   background-color: #141414;
-  color: #fff;
+  color: rgb(238, 238, 238);
   transition: 0.3s ease-in-out;
 }
 
