@@ -12,12 +12,12 @@ const clamp = (value , clampAt = 30) => {
 
 const AnimeList = (props) => {
   const [style, set] = useSpring(() => ({
-    transform: "perspective(400px) rotateY(0deg)"
+    transform: "perspective(350px) rotateY(0deg)"
   }));
 
   const bind = useScroll(event => {
     set({
-      transform: `perspective(400px) rotateY(${
+      transform: `perspective(350px) rotateY(${
         event.scrolling ? clamp(event.delta[0]) : 0
       }deg)`
     });
