@@ -133,11 +133,14 @@ input:checked + .slider:before {
 
 .image-container {
   position: relative;
-  transition: transform 0.2s;
+  transition: transform 0.1s;
 }
 
 .image {
   border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .image-container:hover {
@@ -158,10 +161,9 @@ input:checked + .slider:before {
   border-radius: 20px;
 	background: rgba(136, 133, 133, 0.8);
 	width: 100%;
-	transition: 0.5s ease;
 	opacity: 0;
 	bottom: 0;
-	font-size: 20px;
+	font-size: 15px;
 	padding: 20px;
 	text-align: center;
 }
@@ -172,12 +174,27 @@ input:checked + .slider:before {
     overflow-x: auto;
     flex-wrap: nowrap;
   }
+
+  .image-container:hover {
+    cursor: pointer;
+    transform: scale(1.09);
+  }
+
+  .container {
+    overflow-x: scroll;
+    width: 100%;
+  }
   
 }
 
 @media (min-width: 772px) and (max-width: 2560px) {
   
   .anime-app > .row {
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+
+  .container {
     flex-wrap: wrap;
   }
   

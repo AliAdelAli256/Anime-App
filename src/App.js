@@ -22,7 +22,7 @@ const getAnimeRequest = async(searchValue) => {
         if (responseJson.results) {
                 setAnimes(responseJson.results);
         }
-        else if (searchValue == '') {
+        else if (searchValue === '') {
                 setAnimes([]);
         }
 };
@@ -47,8 +47,11 @@ const saveToLocalStorage = (items) => {
 
 const addFavouriteAnimes = (anime) => {
         const newFavouriteList = [...favourites, anime];
-        setFavourites(newFavouriteList);
-        saveToLocalStorage(newFavouriteList);
+        const favouriteList_without_duplicate = newFavouriteList.filter(function(elem, pos) {
+          return newFavouriteList.indexOf(elem) === pos;
+      });
+        setFavourites(favouriteList_without_duplicate);
+        saveToLocalStorage(favouriteList_without_duplicate);
 };
 
 const removeFavouriteAnimes = (anime) => {
