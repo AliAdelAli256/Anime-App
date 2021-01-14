@@ -14,21 +14,31 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
 
 const getAnimeRequest = async(searchValue) => {
-        const url = `https://api.jikan.moe/v3/search/anime?q=${searchValue}&limit=10`;
+        //const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjllZTMyZDVhMDFiYTU1ZjhhYTZkY2U1NjQzMGIwNDMzZmY0OWFhY2UzOWEwNDU1ZDIyNTMwYTUwNzBmZTNkZWY0ZjI0ZDE4YTMzNDM5ZWVjIn0.eyJhdWQiOiIxZDBjOWQwNjc1NDEwZTlkOTE1NmMzNjM5ODlmYWU5OSIsImp0aSI6IjllZTMyZDVhMDFiYTU1ZjhhYTZkY2U1NjQzMGIwNDMzZmY0OWFhY2UzOWEwNDU1ZDIyNTMwYTUwNzBmZTNkZWY0ZjI0ZDE4YTMzNDM5ZWVjIiwiaWF0IjoxNjA4OTkzMTU0LCJuYmYiOjE2MDg5OTMxNTQsImV4cCI6MTYxMTY3MTU1NCwic3ViIjoiMTExMzYzOTYiLCJzY29wZXMiOltdfQ.rxy6O174bl63J1_CMCPQQ1C-5TiQhCX54euYfVue7LGHT97u2q-wc3DZ1_EdW82iNWo185EwggkibdseDEQ9VZc9whct-Shg_mvbsZPffYWVNm65YQpPIJJLsr6fJ9VK9YHctz1r882PshB-k0vDdGmobaqroxTBKsepkIFupAoBmw6KWLxl27-mKeErrrOcaotjyGBg8zqFgxeby_9kaJ241NPrpeVaww5N_FmkkFgnmOE5LTVbvYeJ2yKrH9uJkBlzSErCHCI21cUKLiDatBdbp2htWwPJIvla1Iv7YRs050ciPqoNVcEZWM7ICiI6rTQ3OHLMVeK_zQFNBFRKmg';
+        //const proxy = 'https://cors-anywhere.herokuapp.com/'; 
+        //const url = `${proxy}https://api.myanimelist.net/v2/anime?q=${searchValue}`;
+        const url = `https://api.jikan.moe/v3/search/anime?q=${searchValue}order_by=name&limit=10`;
 
-        const response = await fetch(url);
+        const response = await fetch(url /*, {
+          headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }*/);
         const responseJson = await response.json();
 
         if (responseJson.results) {
                 setAnimes(responseJson.results);
         }
-        else if (searchValue === '') {
-                setAnimes([]);
-        }
 };
 
 useEffect(() => {
-  getAnimeRequest(searchValue);
+  if(searchValue.length >= 3) {
+    getAnimeRequest(searchValue);
+  }
+  else if (searchValue === '') {
+    setAnimes([]);
+}
+  
 }, [searchValue] );
 
 useEffect(() => {
@@ -65,14 +75,14 @@ const removeFavouriteAnimes = (anime) => {
   return ( 
     <div className={darkMode ? "dark-mode dark-input" : "light-mode light-input"}>
        <div className="container">
-                <span style={{ fontSize: 30, color: darkMode ? "grey" : "yellow" }}>☀️</span>
+                <span style={{ fontSize: 30}}>☀️</span>
                 <div className="switch-checkbox">
                   <label className="switch">
                     <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
                     <span className="slider round"> </span>
                   </label>
                 </div>
-                <span style={{ fontSize: 30, color: darkMode ? "#c96dfd" : "grey" }}>🌑</span>
+                <span style={{ fontSize: 30 }}>🌑</span>
        </div>
           <div className = 'container-fluid anime-app'>
            <div className = 'row d-flex align-items-center mt-4 mb-4'>

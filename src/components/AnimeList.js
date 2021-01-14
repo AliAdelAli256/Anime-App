@@ -43,8 +43,9 @@ const AnimeList = (props) => {
             <div 
                     onClick={() => props.handleFavouritesClick(anime)}
                     className='overlay d-flex align-items-center justify-content-center'>
-              <FavouriteComponent />
+                <span>{anime.title}</span>
 					  </div>
+            
           </div>
         ))
       }
