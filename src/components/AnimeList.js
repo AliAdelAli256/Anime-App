@@ -22,7 +22,6 @@ const AnimeList = (props) => {
       }deg)`
     });
   });
-    const FavouriteComponent = props.favouriteComponent;
   return (
       <>
       <div className="container d-flex justify-content-start m-2" {...bind()}>
