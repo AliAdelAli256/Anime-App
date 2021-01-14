@@ -2,6 +2,7 @@ import React , { useState , useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AnimeList from './components/AnimeList';
+import TopAnime from './components/TopAnime';
 import AnimeListHeading from './components/AnimeListHeading';
 import AnimeSearch from './components/SearchAnime';
 import AddFavourite from './components/AddFavourites';
@@ -9,9 +10,18 @@ import RemoveFavourite from './components/RemoveFavourites';
 
 const App = () => {
   const [animes, setAnimes] = useState( [] );
+  const [topAnime, setTopAnime] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [favourites, setFavourites] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+
+
+const getTopAnime = async () => {
+     const temp = await fetch(`https://api.jikan.moe/v3/top/anime`)
+        .then(res => res.json());
+ 
+      setTopAnime(temp.top.slice(0, 10));
+}
 
 const getAnimeRequest = async(searchValue) => {
         //const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjllZTMyZDVhMDFiYTU1ZjhhYTZkY2U1NjQzMGIwNDMzZmY0OWFhY2UzOWEwNDU1ZDIyNTMwYTUwNzBmZTNkZWY0ZjI0ZDE4YTMzNDM5ZWVjIn0.eyJhdWQiOiIxZDBjOWQwNjc1NDEwZTlkOTE1NmMzNjM5ODlmYWU5OSIsImp0aSI6IjllZTMyZDVhMDFiYTU1ZjhhYTZkY2U1NjQzMGIwNDMzZmY0OWFhY2UzOWEwNDU1ZDIyNTMwYTUwNzBmZTNkZWY0ZjI0ZDE4YTMzNDM5ZWVjIiwiaWF0IjoxNjA4OTkzMTU0LCJuYmYiOjE2MDg5OTMxNTQsImV4cCI6MTYxMTY3MTU1NCwic3ViIjoiMTExMzYzOTYiLCJzY29wZXMiOltdfQ.rxy6O174bl63J1_CMCPQQ1C-5TiQhCX54euYfVue7LGHT97u2q-wc3DZ1_EdW82iNWo185EwggkibdseDEQ9VZc9whct-Shg_mvbsZPffYWVNm65YQpPIJJLsr6fJ9VK9YHctz1r882PshB-k0vDdGmobaqroxTBKsepkIFupAoBmw6KWLxl27-mKeErrrOcaotjyGBg8zqFgxeby_9kaJ241NPrpeVaww5N_FmkkFgnmOE5LTVbvYeJ2yKrH9uJkBlzSErCHCI21cUKLiDatBdbp2htWwPJIvla1Iv7YRs050ciPqoNVcEZWM7ICiI6rTQ3OHLMVeK_zQFNBFRKmg';
@@ -30,6 +40,10 @@ const getAnimeRequest = async(searchValue) => {
                 setAnimes(responseJson.results);
         }
 };
+
+useEffect(() => {
+  getTopAnime();
+}, []);
 
 useEffect(() => {
   if(searchValue.length >= 3) {
@@ -93,11 +107,17 @@ const removeFavouriteAnimes = (anime) => {
               <AnimeList animes = {animes} handleFavouritesClick = {addFavouriteAnimes} favouriteComponent = {AddFavourite} />
            </div>
            <div className = 'row d-flex align-items-center mt-4 mb-4'>
+              <AnimeListHeading heading = 'Top 10 Anime'/>
+           </div> 
+           <div className = 'row'>
+              <TopAnime topAnime = {topAnime}  />
+           </div> 
+           <div className = 'row d-flex align-items-center mt-4 mb-4'>
               <AnimeListHeading heading = 'Favourites'/>
            </div>
            <div className = 'row'>
               <AnimeList animes = {favourites} handleFavouritesClick = {removeFavouriteAnimes} favouriteComponent = {RemoveFavourite} />
-           </div>  
+           </div>   
         </div>
     </div>
   );
