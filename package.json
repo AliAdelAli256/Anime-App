@@ -9,9 +9,11 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "react-spring": "^8.0.27",
+    "react-tooltip": "^4.2.13",
     "react-use-gesture": "^9.0.0-beta.11",
     "web-vitals": "^0.2.4"
   },

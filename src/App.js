@@ -5,6 +5,7 @@ import AnimeList from './components/AnimeList';
 import TopAnime from './components/TopAnime';
 import AnimeListHeading from './components/AnimeListHeading';
 import AnimeSearch from './components/SearchAnime';
+import FavouriteList from './components/FavouriteList';
 import AddFavourite from './components/AddFavourites';
 import RemoveFavourite from './components/RemoveFavourites';
 
@@ -116,7 +117,7 @@ const removeFavouriteAnimes = (anime) => {
               <AnimeListHeading heading = 'Favourites'/>
            </div>
            <div className = 'row'>
-              <AnimeList animes = {favourites} handleFavouritesClick = {removeFavouriteAnimes} favouriteComponent = {RemoveFavourite} />
+              <FavouriteList animes = {favourites} handleFavouritesClick = {removeFavouriteAnimes} favouriteComponent = {RemoveFavourite} />
            </div>   
         </div>
     </div>
