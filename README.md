@@ -6,7 +6,7 @@ Anime Website is an interactive website enabling users to search for and display
 # Features
 * The user can add his/her favourite anime to favourite anime lists.
 * Using media-query making the website fully responsive (Desktop ,Laptop and mobile screens).
-* Dark an d light mode to change theme of website.
+* Dark and light mode to change theme of website.
 * Use of react hooks (useScroll) making scrolling animation (in mobile devices screen).
 
 # Tools and Libraries
