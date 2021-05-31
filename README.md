@@ -1,22 +1,22 @@
-Anime Website
+# Anime Website
 
-Description
+# Description
 Anime Website is an interactive website enabling users to search for and display the details of a variety of anime, and displaying the most popular shows. It also allows the user to save search results to their favourites list.
 
-Features
+# Features
 * [The user can add his/her favourite anime to favourite anime lists.]
 * [Using media-query making the website fully responsive (Desktop ,Laptop and mobile screens).]
 * [Dark an d light mode to change theme of website.]
 * [Use of react hooks (useScroll) making scrolling animation (in mobile devices screen).]
 
-Tools and Libraries
+# Tools and Libraries
 * [React]
 * [React Hooks]
 * [Local Storage]
 * [REST API]
 * [Bootstrap and Media Query]
 
-Screenshot
+# Screenshot
 ![Screenshot (341)](https://user-images.githubusercontent.com/48568085/120222710-ac56d780-c240-11eb-9597-a1d164679f02.png)
 ![Screenshot (342)](https://user-images.githubusercontent.com/48568085/120222714-af51c800-c240-11eb-8c53-eabda2fe8a8d.png)
 ![Screenshot (343)](https://user-images.githubusercontent.com/48568085/120222720-b24cb880-c240-11eb-95ef-7a0f8c11ab60.png)
