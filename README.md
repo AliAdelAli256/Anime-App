@@ -1,7 +1,7 @@
 # Anime App
 
 # Description
-Anime Website is an interactive website enabling users to search for and display the details of a variety of anime, and displaying the most popular shows. It also allows the user to save search results to their favourites list.
+Anime App is an interactive website enabling users to search for and display the details of a variety of anime, and displaying the most popular shows. It also allows the user to save search results to their favourites list.
 
 # Features
 * The user can add his/her favourite anime to favourite anime lists.
